@@ -1,0 +1,150 @@
+.filter__toggle-btn {
+  position: relative;
+  display: block;
+  margin-top: 10px;
+  padding: 10px;
+  padding-right: 35px;
+  font-size: 16px;
+  text-transform: capitalize;
+  color: #fff;
+  background-color: @main-color;
+  border: 0;
+  cursor: pointer;
+
+  &:hover {
+    background-color: #000;
+  }
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 13px;
+    right: 7px;
+    width: 17px;
+    height: 10px;
+    background: url(../img/icon-white.png) no-repeat;
+    transition: @transition;
+  }
+}
+
+.filter__controls {
+  display: none;
+}
+
+.filter--opened .filter__toggle-btn::before {
+  transform: rotate(180deg);
+}
+
+.filter--opened .filter__controls {
+  display: block;
+}
+
+.filter__name {
+  position: relative;
+  display: block;
+  margin-bottom: 10px;
+  width: 100%;
+  height: 30px;
+  text-align: left;
+  color: #000;
+  background-color: @second-color;
+  border: 0;
+  cursor: pointer;
+
+  &:first-child {
+    margin-top: 10px;
+  }
+
+  &:hover {
+    color: #fff;
+    background-color: @main-color;
+  }
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 10px;
+    right: 7px;
+    width: 17px;
+    height: 10px;
+    background: url(../img/icon-black.png) no-repeat;
+    transition: @transition;
+  }
+
+  &:hover::before {
+    background-image: url(../img/icon-white.png);
+  }
+}
+
+.filter__name--selected {
+  margin-bottom: 0;
+
+  &::before {
+    transform: rotate(180deg);
+  }
+}
+
+.filter__name + .filter__info {
+  display: none;
+}
+
+.filter__name--selected + .filter__info {
+  display: block;
+  margin-bottom: 10px;
+}
+
+.filter__control-btn {
+  padding: 10px;
+  color: #fff;
+  background-color: @main-color;
+  border: 0;
+  cursor: pointer;
+
+  &:hover {
+    background-color: #000;
+  }
+}
+
+@media (min-width: @tablet-width) {
+  .filter {
+    position: relative;
+    min-width: 220px;
+    max-width: 300px;
+    flex-grow: 1;
+  }
+
+  .filter__toggle-btn {
+    padding: 10px;
+    width: 28px;
+    height: 28px;
+    font-size: 0;
+    border-radius: 50%;
+    cursor: default;
+    
+    &::before {
+      width: 0;
+      height: 0;
+      background: none;
+    }
+    
+    &:hover {
+      background-color: @main-color;
+    }
+  }
+  
+  .filter__checked-counter {
+    top: 2px;
+    font-size: 14px;
+  }
+
+  .filter__controls {
+    display: block;
+  }
+}
+
+@media (min-width: @desktop-width) {
+  .filter {
+    width: 360px;
+    font-size: 16px;
+  }
+}

@@ -1,0 +1,41 @@
+.info {
+  border: 1px solid @second-color;
+}
+
+.info__list {
+  margin: 0;
+  padding: 0;
+  padding-left: 10px;
+  list-style: none;
+}
+
+.info__label-checkbox {
+  position: relative;
+  padding-left: 30px;
+  cursor: pointer;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 12px;
+    height: 12px;
+    color: #000;
+    background-color: transparent;
+    border: 2px solid #000;
+  }
+  
+  &:hover::before {
+    background-color: lighten(@main-color, 25%);
+  }
+}
+
+input[type=checkbox]:checked + .info__label-checkbox {
+  color: @main-color;
+  
+  &::before {
+    color: @main-color;
+    background-color: @main-color;
+  }
+}
